@@ -51,3 +51,34 @@ FROM `departments`
 SELECT COUNT(*)
 FROM `teachers`
 WHERE `phone` IS NULL
+
+
+                                                            -- GROUP BY --
+
+
+-- 1. Contare quanti iscritti ci sono stati ogni anno
+
+
+SELECT COUNT(*), enrolment_date
+FROM `students`
+group by enrolment_date
+order by enrolment_date
+
+-- 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+SELECT `office_address`, count(*)
+FROM `teachers`
+group by `office_address`
+
+-- 3. Calcolare la media dei voti di ogni appello d'esame
+
+SELECT  `exam_id`, AVG(`vote`) as vote_avg
+FROM `exam_student`
+group by `exam_id`
+
+
+-- 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+SELECT  `department_id`, Count(`name`)
+FROM `degrees`
+group by `department_id`
