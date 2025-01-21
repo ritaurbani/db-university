@@ -82,3 +82,6 @@ group by `exam_id`
 SELECT  `department_id`, Count(`name`)
 FROM `degrees`
 group by `department_id`
+
+///////////////////
+
